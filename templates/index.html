@@ -1,0 +1,39 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazi Calculator</title>
+</head>
+<body>
+    <h1>Bazi (Four Pillars) Calculator</h1>
+    <form method="POST">
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required><br><br>
+        
+        <label for="month">Month (1-12):</label>
+        <input type="number" id="month" name="month" min="1" max="12" required><br><br>
+        
+        <label for="day">Day (1-31):</label>
+        <input type="number" id="day" name="day" min="1" max="31" required><br><br>
+        
+        <label for="hour">Hour (0-23):</label>
+        <input type="number" id="hour" name="hour" min="0" max="23" required><br><br>
+        
+        <input type="submit" value="Calculate">
+    </form>
+    
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    {% if year_pillar %}
+        <h2>Four Pillars (Bazi):</h2>
+        <p>Year Pillar: {{ year_pillar }}</p>
+        <p>Month Pillar: {{ month_pillar }}</p>
+        <p>Day Pillar: {{ day_pillar }}</p>
+        <p>Hour Pillar: {{ hour_pillar }}</p>
+    {% endif %}
+</body>
+</html>
